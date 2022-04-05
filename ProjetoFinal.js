@@ -1,7 +1,7 @@
 console.clear();
 const prompt = require('prompt-sync')();
 
-//Apresentação do jogo.
+//Apresentação do jogo. Variáveis de controle dos status e situações da história.
 console.log("Começar o Jogo? Dugite: sim ou nao: ")
 let start = prompt("")
 verificaResposta(start)
@@ -15,7 +15,7 @@ if (start == "nao") {
     console.log(`Uma aventura épica nas terras Nordesticas para salvar o mundo da IRA daquela Que Não deve ser Mencionada!!!\n`);
 }
 
-// Status personagem 
+// Status personagem - Variáveis para armazenar os status do personagem.
 console.log("Digite seu nome Nobre Guerreiro: ")
 let nome = prompt(``);
 let inimigo;
@@ -33,7 +33,7 @@ let timer = 0;
 let fantasyTime = 0;
 let countDown = 0;
 
-
+//Variável para controle da passagem do tempo.
 function clock () {
 
     realTime = (fantasyTime*60)/60
@@ -57,6 +57,7 @@ function levelup() {
 while (exp >= 100) {
     console.log("Sua Experiencia Atingiu o nível necessário!! Você está superando seus limites")
     personagem.level++
+  // Perguntas que alteram esses status do personagem. 
     console.log("Você tem 1 ponto de status para ser adicionado. Digite 1 para STR(Força) e 2 para DEX(Esquiva) ")
     let addstatus = +prompt(``);
     while (addstatus != 1 && addstatus != 2) {
@@ -81,7 +82,7 @@ while (exp >= 100) {
 }
 
 
-
+// Status personagem - Variáveis para armazenar os status do personagem.
 const personagem = {
     nome: nome,
     hp: str * 20,
@@ -105,7 +106,7 @@ const oponente = {
     str: inimigostr,
     dex: inimigodex,
     }
-//jogadas
+//jogadas - Variáveis de controle dos status e situações da história.
 
 const inimigos = {
     in1: "Slime",
@@ -115,7 +116,7 @@ const inimigos = {
     in5: "Kerberos",
 
 }
-
+// Variáveis de controle dos status e situações da história.
 function usarPot() {
                 
         if (personagem.potHP > 0) {
@@ -170,7 +171,8 @@ let escolhaInimigo = function () {
     return(inimigoRandom)
 
 }
-// Função Batalha
+// Função Batalha- Laço de repetição que determinará os ciclos onde a história vai se passar. 
+//Determinar o que acontecerá ao final do ciclo e como ficarão os status.
 
 let batalha = function () {
     let rodadas = (Math.floor(Math.random() * (11 - 1)) + 1).toFixed(0); 
@@ -260,7 +262,7 @@ let batalha = function () {
 
 
 };
-   
+// Função complementar para a batalha   
 function luta (p1) {
 
     if (p1 == 1) {
